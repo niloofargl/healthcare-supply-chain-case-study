@@ -29,7 +29,7 @@ The planning horizon consists of **10 weekly periods**, representing a 70-day CO
 
 For each hospital $h$ and week $t$, the expected demand is estimated as the sum of a baseline inpatient component and a COVID-wave surge component:
 
-$$
+```math
 \mu_{h,t}
 =
 \left\lceil
@@ -37,7 +37,7 @@ $$
 +
 H_t^{VI} s_h L q
 \right\rceil
-$$
+```
 
 where $B_h$ is the staffed bed capacity of hospital $h$, $\rho=0.85$ is the assumed acute-care occupancy level, $q=0.373 \times 1.177 \approx 0.439$ is the estimated number of 1-L IV-fluid bags per occupied bed-day, $H_t^{VI}$ is the weekly number of COVID-19 hospitalizations reported for Vancouver Island Health, $s_h$ is the hospital-level allocation share, and $L=10.1$ days is the average COVID-19 acute length of stay. The IV-fluid coefficient $q$ is based on an adult inpatient IV-fluid audit in which 37.3% of patients received IV fluids and the mean delivered volume among those patients was 1177 mL/day [@eastwood_2012]. The COVID-19 length-of-stay value is based on CIHI’s reported average acute length of stay for COVID-19 hospitalizations in Canada in 2021--2022 [@cihi_2023]. The occupancy assumption follows the use of 85% acute-care occupancy as a high-utilization planning threshold [@oecd_2023].
 
