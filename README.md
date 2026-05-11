@@ -94,19 +94,7 @@ Using this approach, **1,000 demand scenarios** were generated for each hospital
 
 ## Demand Simulation Figure
 
-Place the demand distribution figure in:
-
-```text
-Figures/demand_distribution.png
-```
-
-Then display it in this README using:
-
-```markdown
-![Weekly demand patterns for PPE services across eight hospitals](Figures/demand_distribution.png)
-```
-
-![Weekly demand patterns for PPE services across eight hospitals](Figures/demand_distribution.png)
+![Weekly demand patterns for PPE services across eight hospitals](https://github.com/niloofargl/healthcare-supply-chain-case-study/blob/main/demand_data.png)
 
 
 ## Notes
