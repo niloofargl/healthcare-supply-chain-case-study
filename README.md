@@ -115,3 +115,53 @@ Then display it in this README using:
 - Hospital-level demand estimates are approximations based on public regional data, community population, geographic assignment, and hospital bed capacity.
 - Direct hospital procurement or ward-level utilization data should be used when available.
 
+
+---
+
+## `references.bib`
+
+```bibtex
+@misc{bccdc_archive_2022,
+  author = {{BC Centre for Disease Control}},
+  title = {Archived B.C. COVID-19 Data: Situation Reports, 2022},
+  year = {2022},
+  note = {Epidemiological weeks 1--10 of 2022}
+}
+
+@misc{bccdc_week10_2022,
+  author = {{BC Centre for Disease Control}},
+  title = {British Columbia COVID-19 Situation Report, Week 10: March 06--March 12, 2022},
+  year = {2022}
+}
+
+@article{eastwood_2012,
+  author = {Eastwood, Glenn M. and Peck, Leah and Young, Helen and Prowle, John and Vasudevan, Vandana and Jones, Daryl and Bellomo, Rinaldo},
+  title = {Intravenous fluid administration and monitoring for adult ward patients in a teaching hospital},
+  journal = {Nursing \& Health Sciences},
+  volume = {14},
+  number = {2},
+  pages = {265--271},
+  year = {2012},
+  doi = {10.1111/j.1442-2018.2012.00689.x}
+}
+
+@misc{cihi_2023,
+  author = {{Canadian Institute for Health Information}},
+  title = {Hospital stays in Canada, 2021--2022},
+  year = {2023}
+}
+
+@book{oecd_2023,
+  author = {{OECD}},
+  title = {Health at a Glance 2023: OECD Indicators},
+  publisher = {OECD Publishing},
+  year = {2023},
+  doi = {10.1787/7a7afb35-en}
+}
+
+@misc{bowers_baxter_saline,
+  author = {{Bowers Medical Supply}},
+  title = {Baxter 0.9\% Sodium Chloride Injection, USP in VIAFLEX Plastic Container},
+  year = {2026},
+  note = {Catalogue listing for 1000 mL product: Case/12 Each}
+}
