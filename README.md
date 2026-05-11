@@ -1,9 +1,9 @@
-# healthcare-supply-chain-case-study
+# IV-Fluid Demand Estimation for Vancouver Island Hospital Network
 This repository documents a case study for estimating weekly IV-Serum demand across selected Vancouver Island Health Authority (VIHA) hospitals during COVID-19. The case study supports research on **AI-driven decision-making for sustainable and resilient healthcare supply chain management (SR-HCSCM)**.
 
 ## Project Purpose
 
-Healthcare supply chains face uncertainty during public health crises, especially when direct procurement, inventory, or ward-level utilization data are unavailable. This repository provides a structured approach for estimating hospital-level PPE demand using publicly available regional hospitalization data, hospital bed capacity, community population, and stochastic simulation.
+Healthcare supply chains face uncertainty during public health crises, especially when direct procurement, inventory, or ward-level utilization data are unavailable. This repository provides a structured approach for estimating hospital-level IV-fluid serum demand using publicly available regional hospitalization data, hospital bed capacity, community population, and stochastic simulation.
 
 The methodology is designed to support AI-based healthcare supply chain analysis, including scenario generation, demand uncertainty modeling, and resilient resource-allocation experiments.
 
@@ -11,42 +11,38 @@ The methodology is designed to support AI-based healthcare supply chain analysis
 
 The hospital set includes eight healthcare facilities:
 
-| Code | Hospital / Health Facility |
-|---|---|
-| CR | Campbell River |
-| CV | Comox Valley |
-| CD | Cowichan District |
-| NA | Nanaimo |
-| VG | Victoria General |
-| RJ | Royal Jubilee |
-| WCG | West Coast General |
-| SP | Saanich Peninsula |
+| Paper node | Hospital abbreviation | Hospital name |
+|---|---|---|
+| Node $A'$ | CR | Campbell River Hospital |
+| Node $B'$ | CV | Comox Valley Hospital |
+| Node $C'$ | CD | Cowichan District Hospital |
+| Node $D'$ | NA | Nanaimo Regional General Hospital |
+| Node $E'$ | VG | Victoria General Hospital |
+| Node $F'$ | RJ | Royal Jubilee Hospital |
+| Node $G'$ | WCG | West Coast General Hospital |
+| Node $H'$ | SP | Saanich Peninsula Hospital |
+
 
 ## Demand Estimation Method
 
-Weekly gown consumption attributable to hospitalized COVID-19 patients is estimated using average daily inpatient counts.
+The planning horizon consists of **10 weekly periods**, representing a 70-day COVID-19 wave. The reference period corresponds to **BCCDC epidemiological weeks 1--10 of 2022**, approximately **January 2--March 12, 2022**, which covers the Omicron hospitalization wave in British Columbia. The demand estimates represent **total hospital IV-fluid usage**, not only IV-fluid usage for COVID-19 patients.
 
-Let:
-
-- $k$ denote a hospital.
-- $n$ denote an epidemiological week.
-- $d_k^n$ denote the average daily number of hospitalized COVID-19 patients during week $n$ at hospital $k$.
-- $\sigma = 33$ denote the average number of gowns used per hospitalized COVID-19 patient per day.
-- $GB = 20$ denote the number of gowns per box.
-
-Weekly gown-box demand is estimated as:
+For each hospital $h$ and week $t$, the expected demand is estimated as the sum of a baseline inpatient component and a COVID-wave surge component:
 
 $$
-G_k^n = \left(\frac{7\sigma}{GB}\right)d_k^n
+\mu_{h,t}
+=
+\left\lceil
+7 \rho B_h q
++
+H_t^{VI} s_h L q
+\right\rceil
 $$
 
-Therefore, under the routine-use assumption, each additional hospitalized COVID-19 patient in the weekly average daily census corresponds to approximately:
+where $B_h$ is the staffed bed capacity of hospital $h$, $\rho=0.85$ is the assumed acute-care occupancy level, $q=0.373 \times 1.177 \approx 0.439$ is the estimated number of 1-L IV-fluid bags per occupied bed-day, $H_t^{VI}$ is the weekly number of COVID-19 hospitalizations reported for Vancouver Island Health, $s_h$ is the hospital-level allocation share, and $L=10.1$ days is the average COVID-19 acute length of stay. The IV-fluid coefficient $q$ is based on an adult inpatient IV-fluid audit in which 37.3% of patients received IV fluids and the mean delivered volume among those patients was 1177 mL/day [@eastwood_2012]. The COVID-19 length-of-stay value is based on CIHI’s reported average acute length of stay for COVID-19 hospitalizations in Canada in 2021--2022 [@cihi_2023]. The occupancy assumption follows the use of 85% acute-care occupancy as a high-utilization planning threshold [@oecd_2023].
 
-$$
-\frac{7 \times 33}{20} = 11.55
-$$
+The hospital allocation share $s_h$ is obtained by mapping communities to hospitals using catchment-area assignments and staffed bed capacities. Communities assigned to a single hospital are allocated directly to that hospital. Greater Victoria demand is divided among Royal Jubilee, Victoria General, and Saanich Peninsula hospitals in proportion to their bed capacities. This creates hospital-level demand trajectories that vary across both time and location, reflecting the regional hospitalization wave, hospital size, and assigned service population.
 
-gown boxes per week.
 
 ## Data Allocation Logic
 
@@ -112,20 +108,6 @@ Then display it in this README using:
 
 ![Weekly demand patterns for PPE services across eight hospitals](Figures/demand_distribution.png)
 
-## Suggested Repository Structure
-
-```text
-sr-hcscm-case-study/
-├── README.md
-├── docs/
-│   └── case-study.md
-├── data/
-│   └── README.md
-├── Figures/
-│   └── demand_distribution.png
-└── src/
-    └── README.md
-```
 
 ## Notes
 
