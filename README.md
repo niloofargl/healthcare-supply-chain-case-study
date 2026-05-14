@@ -16,11 +16,11 @@ The hospital set includes eight healthcare facilities:
 | Node $H_1$ | CR | Campbell River Hospital |
 | Node $H_2$ | CV | Comox Valley Hospital |
 | Node $H_3$ | CD | Cowichan District Hospital |
-| Node $D'$ | NA | Nanaimo Regional General Hospital |
-| Node $E'$ | VG | Victoria General Hospital |
-| Node $F'$ | RJ | Royal Jubilee Hospital |
-| Node $G'$ | WCG | West Coast General Hospital |
-| Node $H'$ | SP | Saanich Peninsula Hospital |
+| Node $H_4$ | NA | Nanaimo Regional General Hospital |
+| Node $H_5$ | VG | Victoria General Hospital |
+| Node $H_6$ | RJ | Royal Jubilee Hospital |
+| Node $H_7$ | WCG | West Coast General Hospital |
+| Node $H_8$ | SP | Saanich Peninsula Hospital |
 
 
 ## Demand Estimation Method
