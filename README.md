@@ -13,9 +13,9 @@ The hospital set includes eight healthcare facilities:
 
 | Paper node | Hospital abbreviation | Hospital name |
 |---|---|---|
-| Node $A'$ | CR | Campbell River Hospital |
-| Node $B'$ | CV | Comox Valley Hospital |
-| Node $C'$ | CD | Cowichan District Hospital |
+| Node $H_1$ | CR | Campbell River Hospital |
+| Node $H_2$ | CV | Comox Valley Hospital |
+| Node $H_3$ | CD | Cowichan District Hospital |
 | Node $D'$ | NA | Nanaimo Regional General Hospital |
 | Node $E'$ | VG | Victoria General Hospital |
 | Node $F'$ | RJ | Royal Jubilee Hospital |
